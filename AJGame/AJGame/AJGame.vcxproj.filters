@@ -18,12 +18,12 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\GameObject.cpp">
+    <ClCompile Include="FluxEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Source\GameObject.h">
+    <ClInclude Include="FluxEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
