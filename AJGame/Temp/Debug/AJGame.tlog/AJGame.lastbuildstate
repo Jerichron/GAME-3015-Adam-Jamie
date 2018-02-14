@@ -1,6 +1,2 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.15063.0
-<<<<<<< HEAD:AJGame/AJGame/Release/AJGame.tlog/AJGame.lastbuildstate
-Release|Win32|C:\Users\Jeric\source\repos\SFML3015-Project\GAME-3015-Adam-Jamie\AJGame\|
-=======
 Debug|Win32|C:\Users\jamie\Desktop\GAME-3015-Adam-Jamie\AJGame\|
->>>>>>> b0b2335cf2b767c7dadc91005681547b2af07f75:AJGame/Temp/Debug/AJGame.tlog/AJGame.lastbuildstate

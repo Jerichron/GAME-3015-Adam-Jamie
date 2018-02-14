@@ -1,17 +1,21 @@
 #include "FluxEngine.h"
+#include "SplashScreen.h"
 #include <Windows.h>
 #include <iostream>
 using namespace std;
 
-FluxEngine::GameState FluxEngine::_gameState;
 sf::RenderWindow FluxEngine::_mainWindow;
+FluxEngine::GameState FluxEngine::_gameState;
+
 
 void FluxEngine::Start(void)
 {
 	if (_gameState != Uninitialized)
 		return;
 	_mainWindow.create(sf::VideoMode(1024, 768, 32), "Flux");
-	_gameState = FluxEngine::Playing;
+	_gameState = FluxEngine::ShowingSplash;
+	SplashScreen::Show(_mainWindow);
+	
 
 	while (!IsExiting())
 	{
@@ -68,4 +72,5 @@ void FluxEngine::GameLoop(void)
 {
 
 }
+
 
