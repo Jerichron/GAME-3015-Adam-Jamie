@@ -2,7 +2,9 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 
-class SplashScreen {
+class SplashScreen 
+{
 public:
 	static void Show(sf::RenderWindow& window);
+	
 };

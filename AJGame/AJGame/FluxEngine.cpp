@@ -6,6 +6,7 @@ using namespace std;
 
 sf::RenderWindow FluxEngine::_mainWindow;
 FluxEngine::GameState FluxEngine::_gameState;
+sf::Event FluxEngine::event;
 
 
 void FluxEngine::Start(void)
@@ -17,8 +18,18 @@ void FluxEngine::Start(void)
 	SplashScreen::Show(_mainWindow);
 	
 
-	while (!IsExiting())
+	while (_mainWindow.isOpen())
 	{
+		while (_mainWindow.pollEvent(event))
+		{
+			switch (event.type)
+			{
+			case sf::Event::Closed:
+				_mainWindow.close();
+				break;
+			}
+		}
+		
 		GameLoop();
 	}
 	_mainWindow.close();
@@ -64,6 +75,7 @@ bool FluxEngine::Initialize(void)
 	}
 	return true;
 }
+
 bool FluxEngine::IsExiting(void)
 {
 	return false;
