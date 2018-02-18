@@ -1,5 +1,6 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
+#include "GameObject.h"
 
 
 class FluxEngine
@@ -20,6 +21,6 @@ private:
 
 	static GameState _gameState;
 	static sf::RenderWindow _mainWindow;
-	
+	static GameObject mSceneGraph;
 
 };

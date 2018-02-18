@@ -6,7 +6,7 @@ using namespace std;
 
 sf::RenderWindow FluxEngine::_mainWindow;
 FluxEngine::GameState FluxEngine::_gameState;
-
+GameObject FluxEngine::mSceneGraph;
 
 void FluxEngine::Start(void)
 {
@@ -15,7 +15,7 @@ void FluxEngine::Start(void)
 	_mainWindow.create(sf::VideoMode(1024, 768, 32), "Flux");
 	_gameState = FluxEngine::ShowingSplash;
 	SplashScreen::Show(_mainWindow);
-	
+	mSceneGraph;
 
 	while (!IsExiting())
 	{
