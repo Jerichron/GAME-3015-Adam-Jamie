@@ -6,10 +6,10 @@ class FluxEngine
 public:
 	static void Start();
 	static bool Initialize();
-	static void GameLoop();
 
 private:
 	static bool IsExiting();
+	static void GameLoop();
 
 	enum GameState {
 		Uninitialized, ShowingSplash, Paused,
@@ -18,5 +18,4 @@ private:
 
 	static GameState _gameState;
 	static sf::RenderWindow _mainWindow;
-
 };
