@@ -13,6 +13,10 @@ void GameObject::AddChild(GameObject* s)
 }
 void GameObject::Update(float msec) 
 {
+	//Mesh
+	//RigidBody
+	//Audio
+	//
 	if (parent) 
 	{ //This node has a parent...
 		worldTransform = parent->worldTransform * transform;
