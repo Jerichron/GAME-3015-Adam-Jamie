@@ -30,3 +30,8 @@ void GameObject::Update(float msec)
 		(*i)->Update(msec);
 	}
 }
+
+void GameObject::AddComponent(Components* component)
+{
+	m_Components.push_back(component);
+}
