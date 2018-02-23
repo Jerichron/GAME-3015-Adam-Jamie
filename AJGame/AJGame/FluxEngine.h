@@ -20,5 +20,4 @@ private:
 	static GameState _gameState;
 	static sf::RenderWindow _mainWindow;
 	static sf::Event event;
-
 };

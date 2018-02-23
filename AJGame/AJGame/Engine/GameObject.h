@@ -1,4 +1,5 @@
 #include "SFML/Graphics/Transform.hpp"
+#include "Components.h"
 #include<vector>
 
 class GameObject 
@@ -14,8 +15,11 @@ public:
 	void SetParent(GameObject& p) { parent = &p; }
 	void AddChild(GameObject* s);
 
-	virtual void Update(float msec);
+	void AddComponent(Components* component);
 
+	virtual void Update(float msec);
+private:
+	std::vector<Components*> m_Components;
 protected:
 	GameObject* parent;
 	sf::Transform worldTransform;
