@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Engine\Audio.cpp" />
     <ClCompile Include="Engine\Components.cpp" />
+    <ClCompile Include="Engine\Components\Transform.cpp" />
     <ClCompile Include="Engine\GameObject.cpp" />
     <ClCompile Include="Engine\Mesh.cpp" />
     <ClCompile Include="Engine\RigidBody.cpp" />
@@ -31,6 +32,7 @@
   <ItemGroup>
     <ClInclude Include="Engine\Audio.h" />
     <ClInclude Include="Engine\Components.h" />
+    <ClInclude Include="Engine\Components\Transform.h" />
     <ClInclude Include="Engine\GameObject.h" />
     <ClInclude Include="Engine\Mesh.h" />
     <ClInclude Include="Engine\RigidBody.h" />
