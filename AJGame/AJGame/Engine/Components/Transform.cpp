@@ -2,6 +2,7 @@
 
 void Transform::Awake()
 {
+
 }
 
 void Start()

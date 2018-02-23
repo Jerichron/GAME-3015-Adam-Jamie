@@ -1,28 +1,37 @@
 #include "SFML/Graphics/Transform.hpp"
 #include "Components.h"
-#include<vector>
+#include  <vector>
+#include "Components/Transform.h"
 
 class GameObject 
 {
 public:
-	GameObject() { parent = NULL; }
-	~GameObject(void);
+	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) {}
 
-	void SetTransform(const sf::Transform &matrix) { transform = matrix; }
-	sf::Transform GetTransform() { return transform; }
-	sf::Transform GetWorldTransform() { return worldTransform; }
+	int GetObjectID() const { return m_UniqueID; }
 
-	void SetParent(GameObject& p) { parent = &p; }
+	Transform transform;
+
+	void SetParent(GameObject& p) { m_Parent = &p; }
 	void AddChild(GameObject* s);
 
 	void AddComponent(Components* component);
 
-	virtual void Update(float msec);
+	
+	void Update(float msec);
+	void Awake();
+	void Start();
+	void LateUpdate(float msec);
+
 private:
+
+	int m_UniqueID;
+
 	std::vector<Components*> m_Components;
-protected:
-	GameObject* parent;
+
+	GameObject* m_Parent;
+	
 	sf::Transform worldTransform;
-	sf::Transform transform;
-	std::vector<GameObject*> children;
+
+	std::vector<GameObject*> m_Children;
 };

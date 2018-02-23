@@ -10,7 +10,7 @@
 
 
 class Transform : Components {
-
+public:
 	Transform() : m_Position(), m_Rotation(), m_Scale(1, 1, 1) {}
 	void Awake();
 	void Start();
@@ -19,6 +19,7 @@ class Transform : Components {
 	sf::Vector3f m_Position;
 	sf::Vector3f m_Rotation;
 	sf::Vector3f m_Scale;
-	sf::Transform worldTransform;
+
+	sf::Transform transformMatrix;
 	
 };

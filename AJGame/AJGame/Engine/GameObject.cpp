@@ -1,37 +1,58 @@
 #include "GameObject.h"
 
-GameObject::~GameObject(void) {
-	for (unsigned int i = 0; i< children.size(); i++)
+
+
+void GameObject::Awake()
+{
+	for (std::vector<Components*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i)
 	{
-		delete children[i];
+		(*i)->Awake;
 	}
 }
-void GameObject::AddChild(GameObject* s) 
+
+void GameObject::Start()
 {
-	children.push_back(s);
-		s->parent = this;
+	for (std::vector<Components*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i)
+	{
+		(*i)->Start;
+	}
 }
+
 void GameObject::Update(float msec) 
 {
 	//Mesh
 	//RigidBody
 	//Audio
 	//
-	if (parent) 
+	if (m_Parent) 
 	{ //This node has a parent...
-		worldTransform = parent->worldTransform * transform;
+		worldTransform = m_Parent->worldTransform * transform.transformMatrix;
 	}
 	else 
 	{ //Root node, world transform is local transform!
-		worldTransform = transform;
+		worldTransform = sf::Transform() * transform.transformMatrix;
 	}
-	for (std::vector<GameObject*>::iterator i = children.begin(); i != children.end(); ++i)
+	for (std::vector<Components*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i)
 	{
-		(*i)->Update(msec);
+		(*i)->Update();
+	}
+}
+
+void GameObject::LateUpdate(float msec)
+{
+	
+	for (std::vector<Components*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
+		(*i)->LateUpdate();
 	}
 }
 
 void GameObject::AddComponent(Components* component)
 {
 	m_Components.push_back(component);
+}
+
+void GameObject::AddChild(GameObject* s)
+{
+	m_Children.push_back(s);
+	
 }
