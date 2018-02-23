@@ -19,13 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Audio.cpp" />
+    <ClCompile Include="Engine\Components.cpp" />
     <ClCompile Include="Engine\GameObject.cpp" />
+    <ClCompile Include="Engine\Mesh.cpp" />
+    <ClCompile Include="Engine\RigidBody.cpp" />
     <ClCompile Include="FluxEngine.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Audio.h" />
+    <ClInclude Include="Engine\Components.h" />
     <ClInclude Include="Engine\GameObject.h" />
+    <ClInclude Include="Engine\Mesh.h" />
+    <ClInclude Include="Engine\RigidBody.h" />
     <ClInclude Include="FluxEngine.h" />
     <ClInclude Include="SplashScreen.h" />
   </ItemGroup>
