@@ -1,3 +1,14 @@
-﻿  Game.cpp
-  AJGame.vcxproj -> C:\Users\jamie\Desktop\GAME-3015-Adam-Jamie\AJGame\Game\Debug\AJGame.exe
-  AJGame.vcxproj -> C:\Users\jamie\Desktop\GAME-3015-Adam-Jamie\AJGame\Game\Debug\AJGame.pdb (Partial PDB)
+﻿  SplashScreen.cpp
+  Managercpp.cpp
+  Game.cpp
+  FluxEngine.cpp
+  RigidBody.cpp
+  Mesh.cpp
+  GameObject.cpp
+  Transform.cpp
+  Components.cpp
+  Audio.cpp
+  Generating Code...
+  LINK : C:\Users\jamie\Desktop\GAME-3015-Adam-Jamie - Copy (2)\AJGame\Game\Debug\AJGame.exe not found or not built by the last incremental link; performing full link
+  AJGame.vcxproj -> C:\Users\jamie\Desktop\GAME-3015-Adam-Jamie - Copy (2)\AJGame\Game\Debug\AJGame.exe
+  AJGame.vcxproj -> C:\Users\jamie\Desktop\GAME-3015-Adam-Jamie - Copy (2)\AJGame\Game\Debug\AJGame.pdb (Partial PDB)
