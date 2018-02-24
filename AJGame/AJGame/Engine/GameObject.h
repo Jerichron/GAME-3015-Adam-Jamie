@@ -1,6 +1,13 @@
+#ifndef GameObject_h
+#define GameObject_h
+
 #include "SFML/Graphics/Transform.hpp"
 #include "Components.h"
-#include  <vector>
+#include <iostream>
+#include <vector>
+#include <list>
+#include <iterator>
+#include <stdio.h>
 #include "Components/Transform.h"
 
 class GameObject 
@@ -35,3 +42,4 @@ private:
 
 	std::vector<GameObject*> m_Children;
 };
+#endif /* GameObject_h */
