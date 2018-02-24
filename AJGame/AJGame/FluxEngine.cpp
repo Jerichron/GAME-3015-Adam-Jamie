@@ -6,19 +6,28 @@ using namespace std;
 
 sf::RenderWindow FluxEngine::_mainWindow;
 FluxEngine::GameState FluxEngine::_gameState;
-GameObject FluxEngine::mSceneGraph;
+sf::Event FluxEngine::event;
+GameObjectManager FluxEngine::_Manager;
+
 
 void FluxEngine::Start(void)
 {
 	if (_gameState != Uninitialized)
 		return;
-	_mainWindow.create(sf::VideoMode(1024, 768, 32), "Flux");
 	_gameState = FluxEngine::ShowingSplash;
-	SplashScreen::Show(_mainWindow);
-	mSceneGraph;
 
-	while (!IsExiting())
+	while (_mainWindow.isOpen())
 	{
+		while (_mainWindow.pollEvent(event))
+		{
+			switch (event.type)
+			{
+			case sf::Event::Closed:
+				_mainWindow.close();
+				break;
+			}
+		}
+		
 		GameLoop();
 	}
 	_mainWindow.close();
@@ -26,11 +35,14 @@ void FluxEngine::Start(void)
 bool FluxEngine::Initialize(void)
 {
 
+	_mainWindow.create(sf::VideoMode(1024, 768, 32), "Flux");
+	SplashScreen::Show(_mainWindow);
 	//Memory
 
 	__int64 lpFreeBytesAvailable = 0;
 	__int64 lpTotalNumberOfBytes = 0;
 	__int64 lpTotalNumberOfFreeBytes = 0;
+
 
 	int Space = GetDiskFreeSpaceEx(NULL, (PULARGE_INTEGER)&lpFreeBytesAvailable, (PULARGE_INTEGER)&lpTotalNumberOfBytes, (PULARGE_INTEGER)&lpTotalNumberOfFreeBytes);
 	cout << "Current space available is: " << lpFreeBytesAvailable / 1024 << endl;
@@ -64,12 +76,16 @@ bool FluxEngine::Initialize(void)
 	}
 	return true;
 }
+
 bool FluxEngine::IsExiting(void)
 {
 	return false;
 }
 void FluxEngine::GameLoop(void)
 {
+	_Manager.Update(0);
+
+	_Manager.LateUpdate(0);
 
 }
 

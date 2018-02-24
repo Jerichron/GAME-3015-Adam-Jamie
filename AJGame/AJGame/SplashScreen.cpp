@@ -18,13 +18,16 @@ void SplashScreen::Show(sf::RenderWindow& renderWindow)
 	
 	sf::Event event;
 
-		//while ( _gameState != FluxEngine::Initialize) {
-		//	while (renderWindow.pollEvent(event)) {
-		//		if (event.type == sf::Event::EventType::KeyPressed
-		//			|| event.type == sf::Event::EventType::MouseButtonPressed
-		//			|| event.type == sf::Event::EventType::Closed) {
-		//			return;
-		//		}
-		//	}
-		//}
+		while (FluxEngine::ShowingSplash) 
+		{
+			while (renderWindow.pollEvent(event))
+			{
+				if (event.type == sf::Event::EventType::KeyPressed
+					|| event.type == sf::Event::EventType::MouseButtonPressed
+					|| event.type == sf::Event::EventType::Closed)
+				{
+					return;
+				}
+			}
+		}
 }
