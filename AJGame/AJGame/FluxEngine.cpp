@@ -7,6 +7,7 @@ using namespace std;
 sf::RenderWindow FluxEngine::_mainWindow;
 FluxEngine::GameState FluxEngine::_gameState;
 sf::Event FluxEngine::event;
+GameObjectManager FluxEngine::_Manager;
 
 
 void FluxEngine::Start(void)
@@ -15,7 +16,7 @@ void FluxEngine::Start(void)
 		return;
 	_mainWindow.create(sf::VideoMode(1024, 768, 32), "Flux");
 	_gameState = FluxEngine::ShowingSplash;
-	SplashScreen::Show(_mainWindow);
+	
 	
 
 	while (_mainWindow.isOpen())
@@ -36,7 +37,7 @@ void FluxEngine::Start(void)
 }
 bool FluxEngine::Initialize(void)
 {
-
+	SplashScreen::Show(_mainWindow);
 	//Memory
 
 	__int64 lpFreeBytesAvailable = 0;
@@ -82,6 +83,9 @@ bool FluxEngine::IsExiting(void)
 }
 void FluxEngine::GameLoop(void)
 {
+	_Manager.Update(0);
+
+	_Manager.LateUpdate(0);
 
 }
 

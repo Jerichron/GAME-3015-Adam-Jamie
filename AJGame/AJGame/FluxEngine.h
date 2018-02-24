@@ -1,5 +1,6 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
+#include "Manager.h"
 
 
 class FluxEngine
@@ -18,6 +19,8 @@ private:
 	static void GameLoop();
 
 	static GameState _gameState;
+
+	static GameObjectManager _Manager;
 	static sf::RenderWindow _mainWindow;
 	static sf::Event event;
 };

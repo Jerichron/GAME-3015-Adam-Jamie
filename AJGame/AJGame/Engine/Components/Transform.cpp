@@ -2,20 +2,22 @@
 
 void Transform::Awake()
 {
+	sf::Transform Model;
 
+	transformMatrix = Model;
 }
 
-void Start()
+void Transform::Start()
+{
+}
+
+
+void Transform::Update()
 {
 
 }
 
-void Update()
-{
-
-}
-
-void LateUpdate()
+void Transform::LateUpdate()
 {
 
 }
