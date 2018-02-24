@@ -89,11 +89,11 @@ bool FluxEngine::IsExiting(void)
 }
 void FluxEngine::GameLoop(void)
 {
-	
+	_mainWindow.clear(sf::Color::Black);
 	_Manager.Update(0);
 
 	_Manager.LateUpdate(0);
-
+	_mainWindow.display();
 }
 
 

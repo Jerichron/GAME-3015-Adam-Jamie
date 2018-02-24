@@ -47,9 +47,11 @@ void GameObject::LateUpdate(float msec)
 	}
 }
 
-void GameObject::draw(sf::RenderTarget & target, sf::RenderStates state)
+void GameObject::draw(sf::RenderTarget & target, sf::RenderStates state) const
 {
 }
+
+
 
 void GameObject::AddComponent(Components* component)
 {

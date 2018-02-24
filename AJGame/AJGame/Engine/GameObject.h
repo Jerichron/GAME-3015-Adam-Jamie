@@ -10,7 +10,7 @@
 #include "Components/Transform/Transform.h"
 
 
-class GameObject 
+class GameObject :public sf::Transformable, public sf:: Drawable 
 {
 public:
 	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) {}
@@ -27,7 +27,7 @@ public:
 	void Awake();
 	void Start();
 	void LateUpdate(float msec);
-	void draw(sf::RenderTarget& target, sf::RenderStates state);
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates state)const;
 
 private:
 
