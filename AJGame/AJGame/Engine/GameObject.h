@@ -1,7 +1,6 @@
 #ifndef GameObject_h
 #define GameObject_h
 
-#include "SFML/Graphics/Transform.hpp"
 #include "Components.h"
 #include <iostream>
 #include <vector>
@@ -9,8 +8,9 @@
 #include <iterator>
 #include <stdio.h>
 #include "Components/Transform.h"
+#include <SFML\Graphics\Transformable.hpp>
 
-class GameObject 
+class GameObject : public sf::Transformable, public sf::Drawable
 {
 public:
 	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) {}
@@ -29,6 +29,7 @@ public:
 	void Awake();
 	void Start();
 	void LateUpdate(float msec);
+	sf::Transform getWorldTransform()const;
 
 private:
 

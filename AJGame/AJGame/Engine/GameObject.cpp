@@ -22,18 +22,20 @@ void GameObject::Update(float msec)
 	//RigidBody
 	//Audio
 	//
+
 	if (m_Parent) 
 	{ //This node has a parent...
-		worldTransform = m_Parent->worldTransform * transform.transformMatrix;
+		worldTransform = getWorldTransform();
 	}
 	else 
 	{ //Root node, world transform is local transform!
-		worldTransform = sf::Transform() * transform.transformMatrix;
+		worldTransform = getWorldTransform();
 	}
 	for (std::vector<Components*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i)
 	{
 		(*i)->Update();
 	}
+
 }
 
 void GameObject::LateUpdate(float msec)
@@ -53,4 +55,14 @@ void GameObject::AddChild(GameObject* s)
 {
 	m_Children.push_back(s);
 	
+}
+
+sf::Transform GameObject::getWorldTransform() const
+{
+	sf::Transform transform = sf::Transform::Identity;
+
+	for (const GameObject* child = this; child != nullptr; child = child->m_Parent)
+		transform = child->getTransform() * transform;
+
+	return transform;
 }

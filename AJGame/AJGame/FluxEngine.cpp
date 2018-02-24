@@ -14,10 +14,7 @@ void FluxEngine::Start(void)
 {
 	if (_gameState != Uninitialized)
 		return;
-	_mainWindow.create(sf::VideoMode(1024, 768, 32), "Flux");
 	_gameState = FluxEngine::ShowingSplash;
-	
-	
 
 	while (_mainWindow.isOpen())
 	{
@@ -37,12 +34,15 @@ void FluxEngine::Start(void)
 }
 bool FluxEngine::Initialize(void)
 {
+
+	_mainWindow.create(sf::VideoMode(1024, 768, 32), "Flux");
 	SplashScreen::Show(_mainWindow);
 	//Memory
 
 	__int64 lpFreeBytesAvailable = 0;
 	__int64 lpTotalNumberOfBytes = 0;
 	__int64 lpTotalNumberOfFreeBytes = 0;
+
 
 	int Space = GetDiskFreeSpaceEx(NULL, (PULARGE_INTEGER)&lpFreeBytesAvailable, (PULARGE_INTEGER)&lpTotalNumberOfBytes, (PULARGE_INTEGER)&lpTotalNumberOfFreeBytes);
 	cout << "Current space available is: " << lpFreeBytesAvailable / 1024 << endl;

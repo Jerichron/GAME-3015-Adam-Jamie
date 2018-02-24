@@ -9,6 +9,7 @@ void Transform::Awake()
 
 void Transform::Start()
 {
+
 }
 
 
