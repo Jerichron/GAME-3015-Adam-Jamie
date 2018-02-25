@@ -19,26 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\Audio.cpp" />
     <ClCompile Include="Engine\Components.cpp" />
-    <ClCompile Include="Engine\Components\Transform.cpp" />
+    <ClCompile Include="Engine\Components\Transform\Transform.cpp" />
+    <ClCompile Include="Engine\FluxEngine.cpp" />
     <ClCompile Include="Engine\GameObject.cpp" />
-    <ClCompile Include="Engine\Mesh.cpp" />
-    <ClCompile Include="Engine\RigidBody.cpp" />
-    <ClCompile Include="FluxEngine.cpp" />
+    <ClCompile Include="Engine\Manager.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Managercpp.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Audio.h" />
     <ClInclude Include="Engine\Components.h" />
-    <ClInclude Include="Engine\Components\Transform.h" />
+    <ClInclude Include="Engine\Components\Transform\Transform.h" />
+    <ClInclude Include="Engine\FluxEngine.h" />
     <ClInclude Include="Engine\GameObject.h" />
-    <ClInclude Include="Engine\Mesh.h" />
-    <ClInclude Include="Engine\RigidBody.h" />
-    <ClInclude Include="FluxEngine.h" />
-    <ClInclude Include="Manager.h" />
+    <ClInclude Include="Engine\Manager.h" />
     <ClInclude Include="SplashScreen.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -105,7 +99,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)Library\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)AJGame;$(SolutionDir)Library\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>

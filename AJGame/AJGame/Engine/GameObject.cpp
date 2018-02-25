@@ -25,11 +25,12 @@ void GameObject::Update(float msec)
 
 	if (m_Parent) 
 	{ //This node has a parent...
-		worldTransform = getWorldTransform();
+		worldTransform = m_Parent->worldTransform * transform.transformMatrix;
 	}
 	else 
 	{ //Root node, world transform is local transform!
-		worldTransform = getWorldTransform();
+		sf::Transform baseTransform = sf::Transform::Identity;
+		worldTransform = baseTransform * transform.transformMatrix;
 	}
 	for (std::vector<Components*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i)
 	{
@@ -46,6 +47,12 @@ void GameObject::LateUpdate(float msec)
 	}
 }
 
+void GameObject::draw(sf::RenderTarget & target, sf::RenderStates state) const
+{
+}
+
+
+
 void GameObject::AddComponent(Components* component)
 {
 	m_Components.push_back(component);
@@ -55,14 +62,4 @@ void GameObject::AddChild(GameObject* s)
 {
 	m_Children.push_back(s);
 	
-}
-
-sf::Transform GameObject::getWorldTransform() const
-{
-	sf::Transform transform = sf::Transform::Identity;
-
-	for (const GameObject* child = this; child != nullptr; child = child->m_Parent)
-		transform = child->getTransform() * transform;
-
-	return transform;
 }
