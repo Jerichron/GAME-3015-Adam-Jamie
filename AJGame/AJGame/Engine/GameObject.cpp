@@ -63,3 +63,54 @@ void GameObject::AddChild(GameObject* s)
 	m_Children.push_back(s);
 	
 }
+
+bool GameObject::SendMessage(Messages* msg)
+{
+	bool messageHandled = false;
+
+	// Object has a switch for any messages it cares about
+	switch (msg->GetMessageType())
+	{
+		//            case SetPosition:
+		//            {
+		//                MsgSetPosition* msgSetPos = static_cast<MsgSetPosition*>(msg);
+		//                m_Position.x = msgSetPos->x;
+		//                m_Position.y = msgSetPos->y;
+		//                m_Position.z = msgSetPos->z;
+		//
+		//                messageHandled = true;
+		//                cout << "Object handled SetPosition\n";
+		//            }
+		//                break;
+		//            case GetPosition:
+		//            {
+		//                MsgGetPosition* msgSetPos = static_cast<MsgGetPosition*>(msg);
+		//                msgSetPos->x = m_Position.x;
+		//                msgSetPos->y = m_Position.y;
+		//                msgSetPos->z = m_Position.z;
+		//
+		//                messageHandled = true;
+		//                cout << "Object handling GetPosition\n";
+		//            }
+		break;
+	default:
+		return PassMessageToComponents(msg);
+	}
+
+	messageHandled |= PassMessageToComponents(msg);
+
+	return messageHandled;
+}
+
+bool GameObject::PassMessageToComponents(Messages* msg)
+{
+	bool messageHandled = false;
+
+	std::vector<Components*>::iterator compIt = m_Components.begin();
+	for (compIt; compIt != m_Components.end(); ++compIt)
+	{
+		messageHandled |= (*compIt)->SendMessage(msg);
+	}
+
+	return messageHandled;
+}

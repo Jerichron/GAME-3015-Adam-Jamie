@@ -1,13 +1,15 @@
 #ifndef GameObject_h
 #define GameObject_h
 
+#include "Components/Transform/Transform.h"
+#include "Components/Messages.h"
 #include "Components.h"
 #include <iostream>
 #include <vector>
 #include <list>
 #include <iterator>
 #include <stdio.h>
-#include "Components/Transform/Transform.h"
+
 
 
 class GameObject :public sf::Transformable, public sf:: Drawable 
@@ -17,7 +19,9 @@ public:
 
 	int GetObjectID() const { return m_UniqueID; }
 
-	Transform transform;
+	bool SendMessage(Messages* msg);
+
+	
 
 	void SetParent(GameObject& p) { m_Parent = &p; }
 	void AddChild(GameObject* s);
@@ -28,7 +32,13 @@ public:
 	void Start();
 	void LateUpdate(float msec);
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates state)const;
+	
+private:
+	bool PassMessageToComponents(Messages* msg);
 
+
+public:
+	Transform transform;
 private:
 
 	int m_UniqueID;

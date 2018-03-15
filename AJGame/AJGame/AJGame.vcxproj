@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Components.cpp" />
+    <ClCompile Include="Engine\Components\Messages.cpp" />
     <ClCompile Include="Engine\Components\Transform\Transform.cpp" />
     <ClCompile Include="Engine\FluxEngine.cpp" />
     <ClCompile Include="Engine\GameObject.cpp" />
@@ -29,6 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Components.h" />
+    <ClInclude Include="Engine\Components\Messages.h" />
     <ClInclude Include="Engine\Components\Transform\Transform.h" />
     <ClInclude Include="Engine\FluxEngine.h" />
     <ClInclude Include="Engine\GameObject.h" />
@@ -106,7 +108,7 @@
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)Library\SFML\lib\static-std;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;freetype.lib;jpeg.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

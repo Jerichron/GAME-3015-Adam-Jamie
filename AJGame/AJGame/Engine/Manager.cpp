@@ -34,3 +34,14 @@ GameObject* GameObjectManager::CreateObject()
 
 	return newObj;
 }
+
+bool GameObjectManager::SendMessage(Messages* msg)
+{
+	std::map<int, GameObject*>::iterator objIt = m_Objects.find(msg->GetDestinationID());
+	if (objIt != m_Objects.end())
+	{
+		return objIt->second->SendMessage(msg);
+	}
+
+	return false;
+}
