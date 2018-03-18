@@ -4,6 +4,7 @@
 
 
 class Transform : Components {
+
 public:
 	Transform() : m_Position(), m_Rotation(), m_Scale(1, 1) {}
 	void Awake();

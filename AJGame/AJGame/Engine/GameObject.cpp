@@ -47,9 +47,7 @@ void GameObject::LateUpdate(float msec)
 	}
 }
 
-void GameObject::draw(sf::RenderTarget & target, sf::RenderStates state) const
-{
-}
+
 
 
 

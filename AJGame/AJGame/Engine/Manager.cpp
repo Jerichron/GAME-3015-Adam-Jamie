@@ -27,6 +27,8 @@ void GameObjectManager::LateUpdate(float msec) {
 	}
 }
 
+
+
 GameObject* GameObjectManager::CreateObject()
 {
 	GameObject* newObj = new GameObject(nextObjectID++);

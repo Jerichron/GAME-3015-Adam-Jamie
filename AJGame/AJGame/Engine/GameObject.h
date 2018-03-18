@@ -12,10 +12,10 @@
 
 
 
-class GameObject :public sf::Transformable, public sf:: Drawable 
+class GameObject 
 {
 public:
-	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) {}
+	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) { }
 
 	int GetObjectID() const { return m_UniqueID; }
 
@@ -31,7 +31,6 @@ public:
 	void Awake();
 	void Start();
 	void LateUpdate(float msec);
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates state)const;
 	
 private:
 	bool PassMessageToComponents(Messages* msg);

@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Engine\Components.cpp" />
     <ClCompile Include="Engine\Components\Messages.cpp" />
+    <ClCompile Include="Engine\Components\Renderer\Mesh.cpp" />
     <ClCompile Include="Engine\Components\Transform\Transform.cpp" />
     <ClCompile Include="Engine\FluxEngine.cpp" />
     <ClCompile Include="Engine\GameObject.cpp" />
@@ -31,6 +32,7 @@
   <ItemGroup>
     <ClInclude Include="Engine\Components.h" />
     <ClInclude Include="Engine\Components\Messages.h" />
+    <ClInclude Include="Engine\Components\Renderer\Mesh.h" />
     <ClInclude Include="Engine\Components\Transform\Transform.h" />
     <ClInclude Include="Engine\FluxEngine.h" />
     <ClInclude Include="Engine\GameObject.h" />

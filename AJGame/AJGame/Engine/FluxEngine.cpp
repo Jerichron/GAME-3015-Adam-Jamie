@@ -4,10 +4,12 @@
 #include <iostream>
 using namespace std;
 
+const sf::Time FluxEngine::TimePerFrame = sf::seconds(1.f / 60.f);
 sf::RenderWindow FluxEngine::_mainWindow;
 FluxEngine::GameState FluxEngine::_gameState;
 sf::Event FluxEngine::event;
 GameObjectManager FluxEngine::_Manager;
+
 
 
 FluxEngine::FluxEngine()
@@ -25,8 +27,10 @@ void FluxEngine::Start(void)
 	if (_gameState != Uninitialized)
 		return;
 	_gameState = FluxEngine::Playing;
+	LoadLevel();
 	while (_mainWindow.isOpen())
 	{
+
 		while (_mainWindow.pollEvent(event))
 		{
 			switch (event.type)
@@ -89,11 +93,22 @@ bool FluxEngine::IsExiting(void)
 }
 void FluxEngine::GameLoop(void)
 {
-	_mainWindow.clear(sf::Color::Black);
-	_Manager.Update(0);
+	sf::Clock clock;
+	sf::Time timeSinceLastUpdate = sf::Time::Zero;
+	while (timeSinceLastUpdate > TimePerFrame)
+	{
+		timeSinceLastUpdate -= TimePerFrame;
 
-	_Manager.LateUpdate(0);
-	_mainWindow.display();
+		_Manager.Update(TimePerFrame.asSeconds());
+		_Manager.LateUpdate(TimePerFrame.asSeconds());
+	}
 }
 
-
+void FluxEngine::LoadLevel() 
+{
+	GameObject* sun;
+	sun = _Manager.CreateObject();
+	if (sun)
+		printf("sun made");
+	
+}
