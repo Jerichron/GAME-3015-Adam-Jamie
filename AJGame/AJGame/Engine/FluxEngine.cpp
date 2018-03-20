@@ -2,6 +2,7 @@
 #include "../SplashScreen.h"
 #include <Windows.h>
 #include <iostream>
+#include <string>
 using namespace std;
 
 const sf::Time FluxEngine::TimePerFrame = sf::seconds(1.f / 60.f);
@@ -9,7 +10,7 @@ sf::RenderWindow FluxEngine::_mainWindow;
 FluxEngine::GameState FluxEngine::_gameState;
 sf::Event FluxEngine::event;
 GameObjectManager FluxEngine::_Manager;
-
+//Mesh FluxEngine::_Mesh;
 
 
 FluxEngine::FluxEngine()
@@ -95,20 +96,32 @@ void FluxEngine::GameLoop(void)
 {
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
-	while (timeSinceLastUpdate > TimePerFrame)
-	{
+	//while (timeSinceLastUpdate > TimePerFrame)
+	//{
 		timeSinceLastUpdate -= TimePerFrame;
 
+		_mainWindow.clear(sf::Color::Black);
 		_Manager.Update(TimePerFrame.asSeconds());
+		_Manager.draw(_mainWindow);
 		_Manager.LateUpdate(TimePerFrame.asSeconds());
-	}
+
+		_mainWindow.display();
+	//}
 }
 
 void FluxEngine::LoadLevel() 
 {
-	GameObject* sun;
-	sun = _Manager.CreateObject();
-	if (sun)
-		printf("sun made");
+	GameObject* background = _Manager.CreateObject();;
+	GameObject* sun = _Manager.CreateObject();
+
+	background->transform.SetPosition(sf::Vector2f(0.0f, 0.0f));
+	background->AddChild(sun);
+
+	sun->transform.SetPosition(sf::Vector2f(50.0f, 50.0f));
+	sun->transform.SetScale(sf::Vector2f(1.0, 1.0));
 	
+
+	background->mesh.setImage("../Assets/Night.jpg");
+	sun->mesh.setImage("../Assets/Sun.jpg");
+
 }

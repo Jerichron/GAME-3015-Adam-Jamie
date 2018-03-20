@@ -20,7 +20,10 @@ public:
 	virtual void Start() {}
 	virtual void Update() {}
 	virtual void LateUpdate() {}
+	
 	bool SendMessage(Messages* msg) { return false; }
+
+
 };
 
 #endif /* Components_h */

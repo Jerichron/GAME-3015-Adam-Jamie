@@ -1,31 +1,25 @@
 #include "Mesh.h"
 
-void Mesh::SetImage(std::string fileName)
+
+
+void Mesh::setImage(std::string fileName)
 {
-	sf::Texture image;
+	
 	if (image.loadFromFile(fileName) != true)
 	{
 		return;
 	}
-
-	sf::Sprite imageSprite(image);
-	sprite = imageSprite;
-
+	sf::Sprite sprite(image);
+	m_sprite = sprite;
 }
 
-void Mesh::draw(sf::RenderTarget & target, sf::RenderStates states) const
+void Mesh::drawCurrent(sf::RenderTarget& target) const
 {
-	// Apply transform of current node
-	states.transform *= getTransform();
-
-	// Draw node and children with changed transform
-	drawCurrent(target, states);
+	
+	target.draw(m_sprite);
 }
 
 void Mesh::drawCurrent(sf::RenderTarget & target, sf::RenderStates states) const
 {
-	target.draw(sprite, states);
+	target.draw(m_sprite, states);
 }
-
-
-

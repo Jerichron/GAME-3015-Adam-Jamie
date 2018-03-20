@@ -6,23 +6,16 @@
 #include <SFML/Graphics/Transformable.hpp>
 
 
-class Mesh : Components, public sf::Transformable, public sf::Drawable
+class Mesh : public Components
 {
-	Mesh() { }
-	~Mesh() {}
-
 public:
-	//Sets the sprite for mesh
-	void SetImage(std::string fileName);
+	sf::Transform transform;
+	void setImage(std::string fileName);
 
-	virtual void			draw(sf::RenderTarget& target, sf::RenderStates states) const;
-	virtual void			drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
-	//Transform for the mesh
-	Transform transform;
+	virtual void	drawCurrent(sf::RenderTarget& target) const;
+	virtual void	drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
 
-private:
-	
-	//holds the sprite of mesh 
-	sf::Sprite sprite;
-	
+	sf::Texture image;
+	sf::Sprite m_sprite;
+
 };

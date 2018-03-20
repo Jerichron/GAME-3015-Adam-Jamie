@@ -2,6 +2,7 @@
 #define GameObject_h
 
 #include "Components/Transform/Transform.h"
+#include "Components/Renderer/Mesh.h"
 #include "Components/Messages.h"
 #include "Components.h"
 #include <iostream>
@@ -16,9 +17,7 @@ class GameObject
 {
 public:
 	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) { }
-
 	int GetObjectID() const { return m_UniqueID; }
-
 	bool SendMessage(Messages* msg);
 
 	
@@ -31,15 +30,18 @@ public:
 	void Awake();
 	void Start();
 	void LateUpdate(float msec);
-	
+
 private:
 	bool PassMessageToComponents(Messages* msg);
-
-
 public:
 	Transform transform;
+
+	Mesh mesh;
+
 private:
 
+	virtual void			draw(sf::RenderTarget& target, sf::RenderStates states) const;
+	
 	int m_UniqueID;
 	std::vector<Components*> m_Components;
 	GameObject* m_Parent;

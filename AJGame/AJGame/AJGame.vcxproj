@@ -38,6 +38,7 @@
     <ClInclude Include="Engine\GameObject.h" />
     <ClInclude Include="Engine\Manager.h" />
     <ClInclude Include="SplashScreen.h" />
+    <ClInclude Include="Sun.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -29,7 +29,7 @@ private:
 	static const sf::Time	TimePerFrame;
 	static GameState _gameState;
 
-	static Mesh	_Mesh;
+
 	static GameObjectManager _Manager;
 	static sf::RenderWindow _mainWindow;
 	static sf::Event event;

@@ -18,25 +18,23 @@ void GameObject::Start()
 
 void GameObject::Update(float msec) 
 {
-	//Mesh
-	//RigidBody
-	//Audio
-	//
+
 
 	if (m_Parent) 
 	{ //This node has a parent...
-		worldTransform = m_Parent->worldTransform * transform.transformMatrix;
+		worldTransform = m_Parent->worldTransform * transform.getWorldTransform();
 	}
 	else 
 	{ //Root node, world transform is local transform!
 		sf::Transform baseTransform = sf::Transform::Identity;
-		worldTransform = baseTransform * transform.transformMatrix;
+		worldTransform = baseTransform * transform.getWorldTransform();
 	}
 	for (std::vector<Components*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i)
 	{
 		(*i)->Update();
 	}
 
+	
 }
 
 void GameObject::LateUpdate(float msec)
@@ -58,6 +56,7 @@ void GameObject::AddComponent(Components* component)
 
 void GameObject::AddChild(GameObject* s)
 {
+	s->m_Parent = this;
 	m_Children.push_back(s);
 	
 }
@@ -69,27 +68,11 @@ bool GameObject::SendMessage(Messages* msg)
 	// Object has a switch for any messages it cares about
 	switch (msg->GetMessageType())
 	{
-		//            case SetPosition:
-		//            {
-		//                MsgSetPosition* msgSetPos = static_cast<MsgSetPosition*>(msg);
-		//                m_Position.x = msgSetPos->x;
-		//                m_Position.y = msgSetPos->y;
-		//                m_Position.z = msgSetPos->z;
-		//
-		//                messageHandled = true;
-		//                cout << "Object handled SetPosition\n";
-		//            }
-		//                break;
-		//            case GetPosition:
-		//            {
-		//                MsgGetPosition* msgSetPos = static_cast<MsgGetPosition*>(msg);
-		//                msgSetPos->x = m_Position.x;
-		//                msgSetPos->y = m_Position.y;
-		//                msgSetPos->z = m_Position.z;
-		//
-		//                messageHandled = true;
-		//                cout << "Object handling GetPosition\n";
-		//            }
+	case SetPosition:
+
+		break;
+	case GetPosition:
+
 		break;
 	default:
 		return PassMessageToComponents(msg);
@@ -112,3 +95,10 @@ bool GameObject::PassMessageToComponents(Messages* msg)
 
 	return messageHandled;
 }
+
+void GameObject::draw(sf::RenderTarget & target, sf::RenderStates states) const
+{
+	target.draw(mesh.m_sprite);
+}
+
+

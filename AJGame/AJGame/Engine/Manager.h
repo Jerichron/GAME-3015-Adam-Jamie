@@ -17,7 +17,7 @@ public:
 	void Start();
 	void LateUpdate(float msec);
 
-	
+	void draw(sf::RenderWindow& target);
 
 private:
 	std::map<int, GameObject*> m_Objects;
