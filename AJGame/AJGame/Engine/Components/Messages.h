@@ -8,30 +8,24 @@ enum EMessagesType
 {
 	GetPosition,
 	SetPosition,
+
+
 };
 class Messages
 {
 
 public:
-	int GetDestinationID()
-	{
-		return m_destinationID;
-	}
+	int GetDestinationID();
 
-	void SetDestintionID(int value)
-	{
-		m_destinationID = value;
-	}
 
-	EMessagesType GetMessageType()
-	{
-		return m_messagesId;
-	}
+	void SetDestintionID(int value);
 
-	void SetMessageType(EMessagesType msg)
-	{
-		m_messagesId = msg;
-	}
+
+	EMessagesType GetMessageType();
+
+
+	void SetMessageType(EMessagesType msg);
+
 
 protected:
 	Messages(int destinationID, EMessagesType messagesId)

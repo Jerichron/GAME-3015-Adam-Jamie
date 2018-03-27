@@ -17,30 +17,31 @@ class GameObject
 {
 public:
 	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) { }
+	~GameObject() {}
 	int GetObjectID() const { return m_UniqueID; }
 	bool SendMessage(Messages* msg);
 
-	
+	void AddComponent(Components* component);
 
 	void SetParent(GameObject& p) { m_Parent = &p; }
 	void AddChild(GameObject* s);
-	void AddComponent(Components* component);
 
 	void Update(float msec);
 	void Awake();
 	void Start();
 	void LateUpdate(float msec);
 
+	virtual void			draw(sf::RenderTarget& target) const;
+
 private:
 	bool PassMessageToComponents(Messages* msg);
 public:
-	Transform transform;
+	Transform* transform;
 
-	Mesh mesh;
+	Mesh* mesh;
 
 private:
 
-	virtual void			draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	
 	int m_UniqueID;
 	std::vector<Components*> m_Components;

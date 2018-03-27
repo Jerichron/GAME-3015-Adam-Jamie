@@ -1,5 +1,6 @@
 #include "FluxEngine.h"
 #include "../SplashScreen.h"
+#include "Components\Collision\RigidBody.h"
 #include <Windows.h>
 #include <iostream>
 #include <string>
@@ -29,6 +30,9 @@ void FluxEngine::Start(void)
 		return;
 	_gameState = FluxEngine::Playing;
 	LoadLevel();
+
+	sf::Clock clock;
+	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	while (_mainWindow.isOpen())
 	{
 
@@ -41,17 +45,18 @@ void FluxEngine::Start(void)
 				break;
 			}
 		}
+	
 		
-		GameLoop();
+		GameLoop(timeSinceLastUpdate, clock);
 	}
 	_mainWindow.close();
 }
 bool FluxEngine::Initialize(void)
 {
-	//Memory
 
 	__int64 lpFreeBytesAvailable = 0;
 	__int64 lpTotalNumberOfBytes = 0;
+	//Memory
 	__int64 lpTotalNumberOfFreeBytes = 0;
 
 
@@ -92,13 +97,15 @@ bool FluxEngine::IsExiting(void)
 {
 	return false;
 }
-void FluxEngine::GameLoop(void)
+
+void FluxEngine::GameLoop(sf::Time time, sf::Clock clock)
 {
-	sf::Clock clock;
-	sf::Time timeSinceLastUpdate = sf::Time::Zero;
-	//while (timeSinceLastUpdate > TimePerFrame)
-	//{
-		timeSinceLastUpdate -= TimePerFrame;
+	sf::Time elapsedTime = clock.restart();
+	time += elapsedTime;
+
+	while (time > TimePerFrame)
+	{
+		time -= TimePerFrame;
 
 		_mainWindow.clear(sf::Color::Black);
 		_Manager.Update(TimePerFrame.asSeconds());
@@ -106,22 +113,20 @@ void FluxEngine::GameLoop(void)
 		_Manager.LateUpdate(TimePerFrame.asSeconds());
 
 		_mainWindow.display();
-	//}
+	}
 }
 
 void FluxEngine::LoadLevel() 
 {
-	GameObject* background = _Manager.CreateObject();;
-	GameObject* sun = _Manager.CreateObject();
-
-	background->transform.SetPosition(sf::Vector2f(0.0f, 0.0f));
-	background->AddChild(sun);
-
-	sun->transform.SetPosition(sf::Vector2f(50.0f, 50.0f));
-	sun->transform.SetScale(sf::Vector2f(1.0, 1.0));
+	GameObject* background = _Manager.CreateObject();
 	
+	background->transform->SetPosition(150.0f,00.0f);
+	background->mesh->setImage("../Assets/Night.jpg");
 
-	background->mesh.setImage("../Assets/Night.jpg");
-	sun->mesh.setImage("../Assets/Sun.jpg");
+	GameObject* sun = _Manager.CreateObject();
+	sun->transform->SetPosition(sf::Vector2f(00.0f, 0.0f));
 
+	sun->mesh->setImage("../Assets/Sun.jpg");
+	background->AddChild(sun);
+	
 }

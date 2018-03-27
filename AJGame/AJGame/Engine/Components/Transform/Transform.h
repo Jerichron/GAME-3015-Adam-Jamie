@@ -3,10 +3,11 @@
 #include "../../Components.h"
 
 
-class Transform : Components {
+class Transform : public Components {
 
 public:
-	Transform() : m_Position(), m_Rotation(), m_Scale(1, 1) {}
+	Transform() : m_Position(0.0f, 0.0f), m_Rotation(0.0f), m_Scale(1.0f, 1.0f) {}
+	~Transform() {}
 	void Awake();
 	void Start();
 	void Update();
@@ -14,8 +15,10 @@ public:
 	bool SendMessage(Messages* msg) { return false; }
 
 	void SetPosition(sf::Vector2f position);
+	void SetPosition(float x, float y);
 	void SetRotation(float rotation);
 	void SetScale(sf::Vector2f scale);
+	void SetScale(float x, float y);
 
 	sf::Vector2f GetPosition();
 	float GetRotation();

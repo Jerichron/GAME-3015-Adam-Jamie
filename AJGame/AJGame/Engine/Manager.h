@@ -12,6 +12,8 @@ public:
 	bool SendMessage(Messages* msg);
 	GameObject* CreateObject();
 
+	
+
 	void Update(float msec);
 	void Awake();
 	void Start();

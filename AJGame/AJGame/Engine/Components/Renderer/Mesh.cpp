@@ -13,11 +13,6 @@ void Mesh::setImage(std::string fileName)
 	m_sprite = sprite;
 }
 
-void Mesh::drawCurrent(sf::RenderTarget& target) const
-{
-	
-	target.draw(m_sprite);
-}
 
 void Mesh::drawCurrent(sf::RenderTarget & target, sf::RenderStates states) const
 {

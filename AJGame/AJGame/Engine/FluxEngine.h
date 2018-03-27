@@ -23,7 +23,7 @@ public:
 
 private:
 	static bool IsExiting();
-	static void GameLoop();
+	static void GameLoop(sf::Time time, sf::Clock clock);
 	static void LoadLevel();
 
 	static const sf::Time	TimePerFrame;

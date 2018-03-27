@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Components.cpp" />
+    <ClCompile Include="Engine\Components\Collision\RigidBody.cpp" />
+    <ClCompile Include="Engine\Components\Input\Input.cpp" />
     <ClCompile Include="Engine\Components\Messages.cpp" />
     <ClCompile Include="Engine\Components\Renderer\Mesh.cpp" />
     <ClCompile Include="Engine\Components\Transform\Transform.cpp" />
@@ -31,6 +33,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Components.h" />
+    <ClInclude Include="Engine\Components\Collision\RigidBody.h" />
+    <ClInclude Include="Engine\Components\Input\Input.h" />
     <ClInclude Include="Engine\Components\Messages.h" />
     <ClInclude Include="Engine\Components\Renderer\Mesh.h" />
     <ClInclude Include="Engine\Components\Transform\Transform.h" />
@@ -38,7 +42,6 @@
     <ClInclude Include="Engine\GameObject.h" />
     <ClInclude Include="Engine\Manager.h" />
     <ClInclude Include="SplashScreen.h" />
-    <ClInclude Include="Sun.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -111,7 +114,7 @@
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)Library\SFML\lib\static-std;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;freetype.lib;jpeg.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

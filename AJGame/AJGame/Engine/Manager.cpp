@@ -32,7 +32,7 @@ void GameObjectManager::LateUpdate(float msec) {
 void GameObjectManager::draw(sf::RenderWindow& target)
 {
 	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
-		i->second->mesh.drawCurrent(target);
+		i->second->draw(target);
 	}
 }
 
@@ -40,7 +40,12 @@ GameObject* GameObjectManager::CreateObject()
 {
 	GameObject* newObj = new GameObject(nextObjectID++);
 	m_Objects[newObj->GetObjectID()] = newObj;
-
+	Transform* newTransform = new Transform();
+	newObj->AddComponent(newTransform);
+	newObj->transform = newTransform;
+	Mesh* newMesh = new Mesh();
+	newObj->AddComponent(newMesh);
+	newObj->mesh = newMesh;
 	return newObj;
 }
 

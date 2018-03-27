@@ -16,25 +16,23 @@ void GameObject::Start()
 	}
 }
 
-void GameObject::Update(float msec) 
+void GameObject::Update(float msec)
 {
 
 
-	if (m_Parent) 
+	if (m_Parent)
 	{ //This node has a parent...
-		worldTransform = m_Parent->worldTransform * transform.getWorldTransform();
+		worldTransform = m_Parent->worldTransform.combine(transform->getWorldTransform());
 	}
-	else 
+	else
 	{ //Root node, world transform is local transform!
-		sf::Transform baseTransform = sf::Transform::Identity;
-		worldTransform = baseTransform * transform.getWorldTransform();
+		sf::Transform baseTransform;
+		worldTransform = baseTransform.combine(transform->getWorldTransform());
 	}
 	for (std::vector<Components*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i)
 	{
 		(*i)->Update();
 	}
-
-	
 }
 
 void GameObject::LateUpdate(float msec)
@@ -45,14 +43,11 @@ void GameObject::LateUpdate(float msec)
 	}
 }
 
-
-
-
-
 void GameObject::AddComponent(Components* component)
 {
 	m_Components.push_back(component);
 }
+
 
 void GameObject::AddChild(GameObject* s)
 {
@@ -96,9 +91,11 @@ bool GameObject::PassMessageToComponents(Messages* msg)
 	return messageHandled;
 }
 
-void GameObject::draw(sf::RenderTarget & target, sf::RenderStates states) const
+void GameObject::draw(sf::RenderTarget & target) const
 {
-	target.draw(mesh.m_sprite);
+	sf::RenderStates states;
+	states.transform = transform->getWorldTransform();
+	mesh->drawCurrent(target, states);
 }
 
 
