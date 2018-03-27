@@ -20,7 +20,6 @@ public:
 
 	void SetDestintionID(int value);
 
-
 	EMessagesType GetMessageType();
 
 
