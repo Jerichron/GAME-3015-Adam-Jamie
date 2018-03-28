@@ -29,9 +29,18 @@ void GameObjectManager::LateUpdate(float msec) {
 	}
 }
 
+void GameObjectManager::CheckInput()
+{
+	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
+		//if (i->second->mesh)
+		//	i->second->draw();
+	}
+}
+
 void GameObjectManager::draw(sf::RenderWindow& target)
 {
 	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
+		if(i->second->mesh->Render)
 		i->second->draw(target);
 	}
 }
@@ -49,13 +58,4 @@ GameObject* GameObjectManager::CreateObject()
 	return newObj;
 }
 
-bool GameObjectManager::SendMessage(Messages* msg)
-{
-	std::map<int, GameObject*>::iterator objIt = m_Objects.find(msg->GetDestinationID());
-	if (objIt != m_Objects.end())
-	{
-		return objIt->second->SendMessage(msg);
-	}
 
-	return false;
-}

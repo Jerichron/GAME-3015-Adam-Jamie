@@ -22,12 +22,11 @@ void GameObject::Update(float msec)
 
 	if (m_Parent)
 	{ //This node has a parent...
-		worldTransform = m_Parent->worldTransform.combine(transform->getWorldTransform());
+		worldTransform = m_Parent->worldTransform *transform->getWorldTransform();
 	}
 	else
 	{ //Root node, world transform is local transform!
-		sf::Transform baseTransform;
-		worldTransform = baseTransform.combine(transform->getWorldTransform());
+		worldTransform = transform->getWorldTransform();
 	}
 	for (std::vector<Components*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i)
 	{
@@ -43,6 +42,11 @@ void GameObject::LateUpdate(float msec)
 	}
 }
 
+void GameObject::HandleEvent(Event * msg)
+{
+
+}
+
 void GameObject::AddComponent(Components* component)
 {
 	m_Components.push_back(component);
@@ -56,45 +60,10 @@ void GameObject::AddChild(GameObject* s)
 	
 }
 
-bool GameObject::SendMessage(Messages* msg)
-{
-	bool messageHandled = false;
-
-	// Object has a switch for any messages it cares about
-	switch (msg->GetMessageType())
-	{
-	case SetPosition:
-
-		break;
-	case GetPosition:
-
-		break;
-	default:
-		return PassMessageToComponents(msg);
-	}
-
-	messageHandled |= PassMessageToComponents(msg);
-
-	return messageHandled;
-}
-
-bool GameObject::PassMessageToComponents(Messages* msg)
-{
-	bool messageHandled = false;
-
-	std::vector<Components*>::iterator compIt = m_Components.begin();
-	for (compIt; compIt != m_Components.end(); ++compIt)
-	{
-		messageHandled |= (*compIt)->SendMessage(msg);
-	}
-
-	return messageHandled;
-}
-
 void GameObject::draw(sf::RenderTarget & target) const
 {
 	sf::RenderStates states;
-	states.transform = transform->getWorldTransform();
+	states.transform = worldTransform;
 	mesh->drawCurrent(target, states);
 }
 

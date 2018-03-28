@@ -26,6 +26,7 @@
     <ClCompile Include="Engine\Components\Messages.cpp" />
     <ClCompile Include="Engine\Components\Renderer\Mesh.cpp" />
     <ClCompile Include="Engine\Components\Transform\Transform.cpp" />
+    <ClCompile Include="Engine\EventSystem.cpp" />
     <ClCompile Include="Engine\FluxEngine.cpp" />
     <ClCompile Include="Engine\GameObject.cpp" />
     <ClCompile Include="Engine\Manager.cpp" />
@@ -40,8 +41,11 @@
     <ClInclude Include="Engine\Components\Messages.h" />
     <ClInclude Include="Engine\Components\Renderer\Mesh.h" />
     <ClInclude Include="Engine\Components\Transform\Transform.h" />
+    <ClInclude Include="Engine\Event.h" />
+    <ClInclude Include="Engine\EventSystem.h" />
     <ClInclude Include="Engine\FluxEngine.h" />
     <ClInclude Include="Engine\GameObject.h" />
+    <ClInclude Include="Engine\Listener.h" />
     <ClInclude Include="Engine\Manager.h" />
     <ClInclude Include="SplashScreen.h" />
   </ItemGroup>

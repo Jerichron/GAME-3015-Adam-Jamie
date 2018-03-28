@@ -9,12 +9,13 @@
 class Mesh : public Components
 {
 public:
-	Mesh() {};
+	Mesh() { Render = false; };
 	~Mesh() {};
 	void setImage(std::string fileName);
 
 	virtual void	drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
 
+	bool Render;
 	Transform transform;
 	sf::Texture image;
 	sf::Sprite m_sprite;

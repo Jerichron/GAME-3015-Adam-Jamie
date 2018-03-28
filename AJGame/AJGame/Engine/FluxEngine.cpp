@@ -1,10 +1,9 @@
 #include "FluxEngine.h"
 #include "../SplashScreen.h"
-#include "Components\Collision\RigidBody.h"
+#include "EventSystem.h"
 #include <Windows.h>
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 const sf::Time FluxEngine::TimePerFrame = sf::seconds(1.f / 60.f);
@@ -12,7 +11,7 @@ sf::RenderWindow FluxEngine::_mainWindow;
 FluxEngine::GameState FluxEngine::_gameState;
 sf::Event FluxEngine::event;
 GameObjectManager FluxEngine::_Manager;
-//Mesh FluxEngine::_Mesh;
+
 
 
 FluxEngine::FluxEngine()
@@ -121,15 +120,17 @@ void FluxEngine::LoadLevel()
 {
 	GameObject* background = _Manager.CreateObject();
 	
-	background->transform->SetPosition(150.0f,00.0f);
+	background->transform->SetPosition(0.0f,0.0f);
 	background->mesh->setImage("../Assets/Night.jpg");
-
-
+	background->mesh->Render = true;
 
 	GameObject* sun = _Manager.CreateObject();
-	sun->transform->SetPosition(sf::Vector2f(00.0f, 0.0f));
+	sun->transform->SetPosition(sf::Vector2f(0.0f, 0.0f));
 
-	sun->mesh->setImage("../Assets/Sun.jpg");
+	EventSystem::Instance()->RegisterEvent("Sun", sun);
+	EventSystem::Instance()->RegisterEvent("Background", background);
+
+	sun->mesh->setImage("../Assets/NRedSun.png");
+	sun->mesh->Render = false;
 	background->AddChild(sun);
-	
 }

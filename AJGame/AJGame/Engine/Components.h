@@ -9,11 +9,11 @@
 
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
-#include "Components/Messages.h"
+#include "Listener.h"
 #include <stdio.h>
 
 
-class Components
+class Components : public Listener
 {
 public:
 	virtual void Awake() {}
@@ -21,7 +21,7 @@ public:
 	virtual void Update() {}
 	virtual void LateUpdate() {}
 	
-	bool SendMessage(Messages* msg) { return false; }
+	void HandleEvent(Event* msg) {}
 
 
 };
