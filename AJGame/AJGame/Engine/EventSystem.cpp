@@ -84,7 +84,7 @@ void EventSystem::SendEvent(EVENTID eventId, void * data)
 	Events.push_back(newEvent);
 }
 
-void EventSystem::ProcessEvent(EVENTID eventId, Listener * listener)
+void EventSystem::ProcessEvent()
 {
 	while (Events.size()) {
 		DispatchEvent(&Events.front());
