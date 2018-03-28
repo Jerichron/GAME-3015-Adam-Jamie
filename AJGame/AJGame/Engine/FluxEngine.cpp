@@ -108,10 +108,20 @@ void FluxEngine::GameLoop(sf::Time time, sf::Clock clock)
 		time -= TimePerFrame;
 
 		_mainWindow.clear(sf::Color::Black);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			EventSystem::Instance()->SendEvent("Background", 0);
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		{
+			EventSystem::Instance()->SendEvent("Sun", 0);
+		}
+		EventSystem::Instance()->ProcessEvent();
 		_Manager.Update(TimePerFrame.asSeconds());
 		_Manager.draw(_mainWindow);
 		_Manager.LateUpdate(TimePerFrame.asSeconds());
 
+		
 		_mainWindow.display();
 	}
 }
@@ -131,6 +141,6 @@ void FluxEngine::LoadLevel()
 	EventSystem::Instance()->RegisterEvent("Background", background);
 
 	sun->mesh->setImage("../Assets/NRedSun.png");
-	sun->mesh->Render = false;
+	sun->mesh->Render = true;
 	background->AddChild(sun);
 }

@@ -44,7 +44,8 @@ void GameObject::LateUpdate(float msec)
 
 void GameObject::HandleEvent(Event * msg)
 {
-
+	printf("move\n");
+	transform->SetPosition(1, 1);
 }
 
 void GameObject::AddComponent(Components* component)

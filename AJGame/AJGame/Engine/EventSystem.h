@@ -26,7 +26,7 @@ public:
 	void UnregisterEvent(EVENTID eventId, Listener* listener);
 	void UnregisterAllEvents(Listener* listener);
 	void SendEvent(EVENTID eventId, void* data = 0);
-	void ProcessEvent(EVENTID eventId, Listener* listener);
+	void ProcessEvent();
 	void ClearEvents();
 	void Shutdown();
 };
