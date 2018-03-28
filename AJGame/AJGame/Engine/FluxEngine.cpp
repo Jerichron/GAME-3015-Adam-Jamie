@@ -122,6 +122,7 @@ void FluxEngine::LoadLevel()
 	
 	background->transform->SetPosition(0.0f,0.0f);
 	background->mesh->setImage("../Assets/Night.jpg");
+	background->mesh->Render = true;
 
 	GameObject* sun = _Manager.CreateObject();
 	sun->transform->SetPosition(sf::Vector2f(0.0f, 0.0f));
@@ -130,6 +131,7 @@ void FluxEngine::LoadLevel()
 	EventSystem::Instance()->RegisterEvent("Background", background);
 
 	sun->mesh->setImage("../Assets/NRedSun.png");
+	sun->mesh->Render = true;
 	background->AddChild(sun);
 	
 }

@@ -44,6 +44,7 @@ void GameObject::LateUpdate(float msec)
 
 void GameObject::HandleEvent(Event * msg)
 {
+
 }
 
 void GameObject::AddComponent(Components* component)

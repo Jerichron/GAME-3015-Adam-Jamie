@@ -9,19 +9,19 @@ void Input::CheckInput()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-
+		printf("Up\n");
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-
+		printf("Down\n");
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-
+		printf("Left\n");
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-
+		printf("Up\n");
 	}
 }
 
