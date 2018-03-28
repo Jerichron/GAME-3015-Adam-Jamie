@@ -5,10 +5,14 @@
 
 class Audio : public Components
 {
-public :
-	Audio() {}
-	~Audio() {}
-	void SetAudio(std::string fileName);
+public:
+	void playMusic(); 
+    void playSound();
+    void setAudio(std::string);
+	Audio();
+	~Audio();
+	//sf::SoundBuffer buffer;
 
-	sf::SoundBuffer buffer;
+private:
+	//sf::Sound music;
 };

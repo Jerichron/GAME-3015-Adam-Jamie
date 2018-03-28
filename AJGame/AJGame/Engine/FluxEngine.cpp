@@ -131,7 +131,6 @@ void FluxEngine::LoadLevel()
 	EventSystem::Instance()->RegisterEvent("Background", background);
 
 	sun->mesh->setImage("../Assets/NRedSun.png");
-	sun->mesh->Render = true;
+	sun->mesh->Render = false;
 	background->AddChild(sun);
-	
 }
