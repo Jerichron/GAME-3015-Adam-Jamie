@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 const sf::Time FluxEngine::TimePerFrame = sf::seconds(1.f / 60.f);
@@ -122,6 +123,8 @@ void FluxEngine::LoadLevel()
 	
 	background->transform->SetPosition(150.0f,00.0f);
 	background->mesh->setImage("../Assets/Night.jpg");
+
+
 
 	GameObject* sun = _Manager.CreateObject();
 	sun->transform->SetPosition(sf::Vector2f(00.0f, 0.0f));

@@ -1,9 +1,17 @@
-﻿  RigidBody.cpp
-  Transform.cpp
-  FluxEngine.cpp
-  GameObject.cpp
-  Manager.cpp
+﻿  SplashScreen.cpp
   Game.cpp
-  SplashScreen.cpp
+  Manager.cpp
+  GameObject.cpp
+  FluxEngine.cpp
+  Transform.cpp
+  Mesh.cpp
+  Messages.cpp
+  Input.cpp
+  RigidBody.cpp
+  Components.cpp
   Generating Code...
-  AJGame.vcxproj -> C:\Users\jamie\Desktop\GAME-3015-Adam-Jamie\AJGame\Game\Debug\AJGame.exe
+FluxEngine.obj : error LNK2019: unresolved external symbol "public: void __thiscall sf::SoundStream::play(void)" (?play@SoundStream@sf@@QAEXXZ) referenced in function "private: static void __cdecl FluxEngine::LoadLevel(void)" (?LoadLevel@FluxEngine@@CAXXZ)
+FluxEngine.obj : error LNK2019: unresolved external symbol "public: __thiscall sf::Music::Music(void)" (??0Music@sf@@QAE@XZ) referenced in function "private: static void __cdecl FluxEngine::LoadLevel(void)" (?LoadLevel@FluxEngine@@CAXXZ)
+FluxEngine.obj : error LNK2019: unresolved external symbol "public: virtual __thiscall sf::Music::~Music(void)" (??1Music@sf@@UAE@XZ) referenced in function "private: static void __cdecl FluxEngine::LoadLevel(void)" (?LoadLevel@FluxEngine@@CAXXZ)
+FluxEngine.obj : error LNK2019: unresolved external symbol "public: bool __thiscall sf::Music::openFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?openFromFile@Music@sf@@QAE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) referenced in function "private: static void __cdecl FluxEngine::LoadLevel(void)" (?LoadLevel@FluxEngine@@CAXXZ)
+C:\Users\Jeric\Desktop\Engine_Unity\GAME-3015-Adam-Jamie\AJGame\Game\Debug\AJGame.exe : fatal error LNK1120: 4 unresolved externals

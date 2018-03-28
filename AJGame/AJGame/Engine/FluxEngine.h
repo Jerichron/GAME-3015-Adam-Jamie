@@ -1,10 +1,10 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 #include "Manager.h"
+#include "Components\Audio\Audio.h"
 #include "Components\Renderer\Mesh.h"
-
-
-
+#include <SFML\Audio.hpp>
+#include <SFML\Audio\Music.hpp>
 
 class FluxEngine
 {

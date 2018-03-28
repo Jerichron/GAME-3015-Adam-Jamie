@@ -1,17 +1,10 @@
-﻿  Components.cpp
-  RigidBody.cpp
-  Input.cpp
-  Messages.cpp
-  Mesh.cpp
-  Transform.cpp
+﻿  Audio.cpp
   FluxEngine.cpp
-  GameObject.cpp
-  Manager.cpp
   Game.cpp
   SplashScreen.cpp
   Generating code
-  3 of 626 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+  20 of 619 functions ( 3.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    60 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  AJGame.vcxproj -> C:\Users\jamie\Desktop\GAME-3015-Adam-Jamie\AJGame\Game\Release\AJGame.exe
+  AJGame.vcxproj -> C:\Users\Jeric\Desktop\Engine_Unity\GAME-3015-Adam-Jamie\AJGame\Game\Release\AJGame.exe

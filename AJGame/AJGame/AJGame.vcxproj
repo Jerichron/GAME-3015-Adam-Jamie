@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Components.cpp" />
+    <ClCompile Include="Engine\Components\Audio\Audio.cpp" />
     <ClCompile Include="Engine\Components\Collision\RigidBody.cpp" />
     <ClCompile Include="Engine\Components\Input\Input.cpp" />
     <ClCompile Include="Engine\Components\Messages.cpp" />
@@ -33,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Components.h" />
+    <ClInclude Include="Engine\Components\Audio\Audio.h" />
     <ClInclude Include="Engine\Components\Collision\RigidBody.h" />
     <ClInclude Include="Engine\Components\Input\Input.h" />
     <ClInclude Include="Engine\Components\Messages.h" />
