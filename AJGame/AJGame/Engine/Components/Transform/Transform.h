@@ -12,7 +12,7 @@ public:
 	void Start();
 	void Update();
 	void LateUpdate();
-	bool SendMessage(Messages* msg) { return false; }
+	void HandleMessage(Event* msg) {}
 
 	void SetPosition(sf::Vector2f position);
 	void SetPosition(float x, float y);

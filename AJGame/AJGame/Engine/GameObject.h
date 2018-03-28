@@ -3,7 +3,7 @@
 
 #include "Components/Transform/Transform.h"
 #include "Components/Renderer/Mesh.h"
-#include "Components/Messages.h"
+#include "Listener.h"
 #include "Components.h"
 #include <iostream>
 #include <vector>
@@ -13,13 +13,13 @@
 
 
 
-class GameObject 
+class GameObject : public Listener
 {
 public:
 	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) { }
 	~GameObject() {}
 	int GetObjectID() const { return m_UniqueID; }
-	bool SendMessage(Messages* msg);
+	void HandleEvent(Event* msg);
 
 	void AddComponent(Components* component);
 
@@ -32,9 +32,6 @@ public:
 	void LateUpdate(float msec);
 
 	virtual void			draw(sf::RenderTarget& target) const;
-
-private:
-	bool PassMessageToComponents(Messages* msg);
 public:
 	Transform* transform;
 

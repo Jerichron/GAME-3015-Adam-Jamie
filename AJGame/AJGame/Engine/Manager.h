@@ -9,7 +9,7 @@
 class GameObjectManager
 {
 public:
-	bool SendMessage(Messages* msg);
+	bool HandleEvent(Event* msg) {}
 	GameObject* CreateObject();
 
 	
