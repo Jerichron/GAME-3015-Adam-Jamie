@@ -19,7 +19,7 @@ public:
 	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) { }
 	~GameObject() {}
 	int GetObjectID() const { return m_UniqueID; }
-	void HandleEvent(Event* msg);
+	virtual void HandleEvent(Event* msg);
 
 	void AddComponent(Components* component);
 

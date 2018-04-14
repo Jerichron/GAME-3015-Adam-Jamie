@@ -1,6 +1,7 @@
 #include "FluxEngine.h"
 #include "../SplashScreen.h"
 #include "EventSystem.h"
+#include "Components\Input\Input.h"
 #include <Windows.h>
 #include <iostream>
 #include <string>
@@ -106,22 +107,15 @@ void FluxEngine::GameLoop(sf::Time time, sf::Clock clock)
 	while (time > TimePerFrame)
 	{
 		time -= TimePerFrame;
-
-		_mainWindow.clear(sf::Color::Black);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		{
-			EventSystem::Instance()->SendEvent("Background", 0);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		{
-			EventSystem::Instance()->SendEvent("Sun", 0);
-		}
 		EventSystem::Instance()->ProcessEvent();
+		Input::CheckInput();
+		
+		_mainWindow.clear(sf::Color::Black);
+
 		_Manager.Update(TimePerFrame.asSeconds());
 		_Manager.draw(_mainWindow);
 		_Manager.LateUpdate(TimePerFrame.asSeconds());
 
-		
 		_mainWindow.display();
 	}
 }
@@ -137,10 +131,10 @@ void FluxEngine::LoadLevel()
 	GameObject* sun = _Manager.CreateObject();
 	sun->transform->SetPosition(sf::Vector2f(0.0f, 0.0f));
 
-	EventSystem::Instance()->RegisterEvent("Sun", sun);
-	EventSystem::Instance()->RegisterEvent("Background", background);
+	EventSystem::Instance()->RegisterEvent("Up", background);
 
 	sun->mesh->setImage("../Assets/NRedSun.png");
 	sun->mesh->Render = true;
 	background->AddChild(sun);
+	
 }

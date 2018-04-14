@@ -1,5 +1,6 @@
 #pragma once
 #include "../../Components.h"
+#include "../../EventSystem.h"
 #include <SFML/Window/Event.hpp>
 
 class Input : public Components
@@ -8,8 +9,8 @@ class Input : public Components
 	~Input() {}
 
 	void Update();
-
-	void CheckInput();
+public:
+	static void CheckInput();
 
 	void SetVelocity(int velX, int velY);
 
