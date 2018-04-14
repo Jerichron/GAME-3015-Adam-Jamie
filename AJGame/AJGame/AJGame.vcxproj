@@ -20,7 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Components.cpp" />
+    <ClCompile Include="Engine\Components\Audio\Audio.cpp" />
+    <ClCompile Include="Engine\Components\Collision\RigidBody.cpp" />
+    <ClCompile Include="Engine\Components\Input\Input.cpp" />
+    <ClCompile Include="Engine\Components\Messages.cpp" />
+    <ClCompile Include="Engine\Components\Renderer\Mesh.cpp" />
     <ClCompile Include="Engine\Components\Transform\Transform.cpp" />
+    <ClCompile Include="Engine\EventSystem.cpp" />
     <ClCompile Include="Engine\FluxEngine.cpp" />
     <ClCompile Include="Engine\GameObject.cpp" />
     <ClCompile Include="Engine\Manager.cpp" />
@@ -29,9 +35,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Components.h" />
+    <ClInclude Include="Engine\Components\Audio\Audio.h" />
+    <ClInclude Include="Engine\Components\Collision\RigidBody.h" />
+    <ClInclude Include="Engine\Components\Input\Input.h" />
+    <ClInclude Include="Engine\Components\Messages.h" />
+    <ClInclude Include="Engine\Components\Renderer\Mesh.h" />
     <ClInclude Include="Engine\Components\Transform\Transform.h" />
+    <ClInclude Include="Engine\Event.h" />
+    <ClInclude Include="Engine\EventSystem.h" />
     <ClInclude Include="Engine\FluxEngine.h" />
     <ClInclude Include="Engine\GameObject.h" />
+    <ClInclude Include="Engine\Listener.h" />
     <ClInclude Include="Engine\Manager.h" />
     <ClInclude Include="SplashScreen.h" />
   </ItemGroup>

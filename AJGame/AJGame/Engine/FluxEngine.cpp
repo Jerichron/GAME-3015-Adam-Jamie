@@ -1,13 +1,17 @@
 #include "FluxEngine.h"
 #include "../SplashScreen.h"
+#include "EventSystem.h"
 #include <Windows.h>
 #include <iostream>
+#include <string>
 using namespace std;
 
+const sf::Time FluxEngine::TimePerFrame = sf::seconds(1.f / 60.f);
 sf::RenderWindow FluxEngine::_mainWindow;
 FluxEngine::GameState FluxEngine::_gameState;
 sf::Event FluxEngine::event;
 GameObjectManager FluxEngine::_Manager;
+
 
 
 FluxEngine::FluxEngine()
@@ -25,8 +29,13 @@ void FluxEngine::Start(void)
 	if (_gameState != Uninitialized)
 		return;
 	_gameState = FluxEngine::Playing;
+	LoadLevel();
+
+	sf::Clock clock;
+	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	while (_mainWindow.isOpen())
 	{
+
 		while (_mainWindow.pollEvent(event))
 		{
 			switch (event.type)
@@ -36,17 +45,18 @@ void FluxEngine::Start(void)
 				break;
 			}
 		}
+	
 		
-		GameLoop();
+		GameLoop(timeSinceLastUpdate, clock);
 	}
 	_mainWindow.close();
 }
 bool FluxEngine::Initialize(void)
 {
-	//Memory
 
 	__int64 lpFreeBytesAvailable = 0;
 	__int64 lpTotalNumberOfBytes = 0;
+	//Memory
 	__int64 lpTotalNumberOfFreeBytes = 0;
 
 
@@ -87,13 +97,50 @@ bool FluxEngine::IsExiting(void)
 {
 	return false;
 }
-void FluxEngine::GameLoop(void)
-{
-	_mainWindow.clear(sf::Color::Black);
-	_Manager.Update(0);
 
-	_Manager.LateUpdate(0);
-	_mainWindow.display();
+void FluxEngine::GameLoop(sf::Time time, sf::Clock clock)
+{
+	sf::Time elapsedTime = clock.restart();
+	time += elapsedTime;
+
+	while (time > TimePerFrame)
+	{
+		time -= TimePerFrame;
+
+		_mainWindow.clear(sf::Color::Black);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			EventSystem::Instance()->SendEvent("Background", 0);
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		{
+			EventSystem::Instance()->SendEvent("Sun", 0);
+		}
+		EventSystem::Instance()->ProcessEvent();
+		_Manager.Update(TimePerFrame.asSeconds());
+		_Manager.draw(_mainWindow);
+		_Manager.LateUpdate(TimePerFrame.asSeconds());
+
+		
+		_mainWindow.display();
+	}
 }
 
+void FluxEngine::LoadLevel() 
+{
+	GameObject* background = _Manager.CreateObject();
+	
+	background->transform->SetPosition(0.0f,0.0f);
+	background->mesh->setImage("../Assets/Night.jpg");
+	background->mesh->Render = true;
 
+	GameObject* sun = _Manager.CreateObject();
+	sun->transform->SetPosition(sf::Vector2f(0.0f, 0.0f));
+
+	EventSystem::Instance()->RegisterEvent("Sun", sun);
+	EventSystem::Instance()->RegisterEvent("Background", background);
+
+	sun->mesh->setImage("../Assets/NRedSun.png");
+	sun->mesh->Render = true;
+	background->AddChild(sun);
+}

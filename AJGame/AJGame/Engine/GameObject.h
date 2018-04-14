@@ -1,36 +1,45 @@
 #ifndef GameObject_h
 #define GameObject_h
 
+#include "Components/Transform/Transform.h"
+#include "Components/Renderer/Mesh.h"
+#include "Listener.h"
 #include "Components.h"
 #include <iostream>
 #include <vector>
 #include <list>
 #include <iterator>
 #include <stdio.h>
-#include "Components/Transform/Transform.h"
 
 
-class GameObject :public sf::Transformable, public sf:: Drawable 
+
+class GameObject : public Listener
 {
 public:
-	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) {}
-
+	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) { }
+	~GameObject() {}
 	int GetObjectID() const { return m_UniqueID; }
+	void HandleEvent(Event* msg);
 
-	Transform transform;
+	void AddComponent(Components* component);
 
 	void SetParent(GameObject& p) { m_Parent = &p; }
 	void AddChild(GameObject* s);
-	void AddComponent(Components* component);
 
 	void Update(float msec);
 	void Awake();
 	void Start();
 	void LateUpdate(float msec);
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates state)const;
+
+	virtual void			draw(sf::RenderTarget& target) const;
+public:
+	Transform* transform;
+
+	Mesh* mesh;
 
 private:
 
+	
 	int m_UniqueID;
 	std::vector<Components*> m_Components;
 	GameObject* m_Parent;
