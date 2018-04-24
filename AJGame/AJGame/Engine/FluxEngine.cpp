@@ -11,8 +11,7 @@ const sf::Time FluxEngine::TimePerFrame = sf::seconds(1.f / 60.f);
 sf::RenderWindow FluxEngine::_mainWindow;
 FluxEngine::GameState FluxEngine::_gameState;
 sf::Event FluxEngine::event;
-GameObjectManager FluxEngine::_Manager;
-
+World FluxEngine::m_World;
 
 
 FluxEngine::FluxEngine()
@@ -30,7 +29,7 @@ void FluxEngine::Start(void)
 	if (_gameState != Uninitialized)
 		return;
 	_gameState = FluxEngine::Playing;
-	LoadLevel();
+	m_World.LoadLevel();
 
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
@@ -109,32 +108,12 @@ void FluxEngine::GameLoop(sf::Time time, sf::Clock clock)
 		time -= TimePerFrame;
 		EventSystem::Instance()->ProcessEvent();
 		Input::CheckInput();
-		
+
 		_mainWindow.clear(sf::Color::Black);
-
-		_Manager.Update(TimePerFrame.asSeconds());
-		_Manager.draw(_mainWindow);
-		_Manager.LateUpdate(TimePerFrame.asSeconds());
-
+		m_World.UpdateWorld(TimePerFrame.asMilliseconds());
+		m_World.DrawWorld(_mainWindow);
 		_mainWindow.display();
 	}
 }
 
-void FluxEngine::LoadLevel() 
-{
-	GameObject* background = _Manager.CreateObject();
-	
-	background->transform->SetPosition(0.0f,0.0f);
-	background->mesh->setImage("../Assets/Night.jpg");
-	background->mesh->Render = true;
 
-	GameObject* sun = _Manager.CreateObject();
-	sun->transform->SetPosition(sf::Vector2f(0.0f, 0.0f));
-
-	EventSystem::Instance()->RegisterEvent("Up", background);
-
-	sun->mesh->setImage("../Assets/NRedSun.png");
-	sun->mesh->Render = true;
-	background->AddChild(sun);
-	
-}

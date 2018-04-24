@@ -1,9 +1,12 @@
-﻿  Input.cpp
-  FluxEngine.cpp
-  GameObject.cpp
+﻿  FluxEngine.cpp
+c:\users\jamie\desktop\game-3015-adam-jamie\ajgame\ajgame\engine\fluxengine.cpp(113): warning C4244: 'argument': conversion from 'sf::Int32' to 'float', possible loss of data
+  Manager.cpp
+  World.cpp
+  Game.cpp
+  SplashScreen.cpp
   Generating code
-  107 of 846 functions (12.6%) were compiled, the rest were copied from previous compilation.
-    3 functions were new in current compilation
-    62 functions had inline decision re-evaluated but remain unchanged
+  42 of 852 functions ( 4.9%) were compiled, the rest were copied from previous compilation.
+    4 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   AJGame.vcxproj -> C:\Users\jamie\Desktop\GAME-3015-Adam-Jamie\AJGame\Game\Release\AJGame.exe

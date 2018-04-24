@@ -25,8 +25,4 @@ void Input::CheckInput()
 	}
 }
 
-void Input::SetVelocity(int velX, int velY)
-{
-	velocityX = velX;
-	velocityY = velX;
-}
+

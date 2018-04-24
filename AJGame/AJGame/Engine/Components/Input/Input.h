@@ -12,9 +12,5 @@ class Input : public Components
 public:
 	static void CheckInput();
 
-	void SetVelocity(int velX, int velY);
 
-private:
-	int velocityX;
-	int velocityY;
 };
