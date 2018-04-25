@@ -22,8 +22,6 @@ public:
 	virtual void LateUpdate() {}
 	
 	void HandleEvent(Event* msg) {}
-
-
 };
 
 #endif /* Components_h */

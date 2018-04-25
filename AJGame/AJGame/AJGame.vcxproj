@@ -30,7 +30,9 @@
     <ClCompile Include="Engine\FluxEngine.cpp" />
     <ClCompile Include="Engine\GameObject.cpp" />
     <ClCompile Include="Engine\Manager.cpp" />
+    <ClCompile Include="Engine\World.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +49,8 @@
     <ClInclude Include="Engine\GameObject.h" />
     <ClInclude Include="Engine\Listener.h" />
     <ClInclude Include="Engine\Manager.h" />
+    <ClInclude Include="Engine\World.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="SplashScreen.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

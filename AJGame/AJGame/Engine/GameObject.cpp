@@ -36,16 +36,21 @@ void GameObject::Update(float msec)
 
 void GameObject::LateUpdate(float msec)
 {
-	
 	for (std::vector<Components*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
 		(*i)->LateUpdate();
 	}
 }
 
-void GameObject::HandleEvent(Event * msg)
+void GameObject::HandleEvent(Event* msg)
 {
-	printf("move\n");
-	transform->SetPosition(1, 1);
+	if(msg->GetEvent() == "Up")
+		transform->SetPosition(0, -1);
+	if (msg->GetEvent() == "Down")
+		transform->SetPosition(0, 1);
+	if (msg->GetEvent() == "Left")
+		transform->SetRotation(-0.1);
+	if (msg->GetEvent() == "Right")
+		transform->SetRotation(0.1);
 }
 
 void GameObject::AddComponent(Components* component)

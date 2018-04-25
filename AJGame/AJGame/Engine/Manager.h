@@ -19,7 +19,6 @@ public:
 	void Start();
 	void LateUpdate(float msec);
 
-	void CheckInput();
 	void draw(sf::RenderWindow& target);
 
 private:

@@ -1,6 +1,7 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 #include "Manager.h"
+#include "World.h"
 #include "Components\Renderer\Mesh.h"
 
 
@@ -24,13 +25,12 @@ public:
 private:
 	static bool IsExiting();
 	static void GameLoop(sf::Time time, sf::Clock clock);
-	static void LoadLevel();
 
 	static const sf::Time	TimePerFrame;
 	static GameState _gameState;
 
 
-	static GameObjectManager _Manager;
+	static World m_World;
 	static sf::RenderWindow _mainWindow;
 	static sf::Event event;
 };

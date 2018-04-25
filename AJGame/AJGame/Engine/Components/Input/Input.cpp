@@ -9,24 +9,20 @@ void Input::CheckInput()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		printf("Up\n");
+		EventSystem::Instance()->SendEvent("Up", 0);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		printf("Down\n");
+		EventSystem::Instance()->SendEvent("Down", 0);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		printf("Left\n");
+		EventSystem::Instance()->SendEvent("Left", 0);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		printf("Up\n");
+		EventSystem::Instance()->SendEvent("Right", 0);
 	}
 }
 
-void Input::SetVelocity(int velX, int velY)
-{
-	velocityX = velX;
-	velocityY = velX;
-}
+

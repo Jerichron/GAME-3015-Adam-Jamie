@@ -29,13 +29,7 @@ void GameObjectManager::LateUpdate(float msec) {
 	}
 }
 
-void GameObjectManager::CheckInput()
-{
-	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
-		//if (i->second->mesh)
-		//	i->second->draw();
-	}
-}
+
 
 void GameObjectManager::draw(sf::RenderWindow& target)
 {
