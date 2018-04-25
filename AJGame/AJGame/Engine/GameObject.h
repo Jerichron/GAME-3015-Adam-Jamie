@@ -16,6 +16,7 @@
 class GameObject : public Listener
 {
 public:
+	GameObject() {}
 	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) { }
 	~GameObject() {}
 	int GetObjectID() const { return m_UniqueID; }

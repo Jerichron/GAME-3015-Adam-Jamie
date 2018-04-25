@@ -10,7 +10,7 @@ class Mesh : public Components
 {
 public:
 	Mesh() { Render = false; };
-	~Mesh() {};
+	~Mesh();
 	void setImage(std::string fileName);
 
 	virtual void	drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;

@@ -2,6 +2,11 @@
 
 
 
+Mesh::~Mesh()
+{
+	image.~Texture();
+}
+
 void Mesh::setImage(std::string fileName)
 {
 	
