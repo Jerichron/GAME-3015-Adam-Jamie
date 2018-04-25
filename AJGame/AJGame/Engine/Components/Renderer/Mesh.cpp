@@ -16,6 +16,8 @@ void Mesh::setImage(std::string fileName)
 	}
 	sf::Sprite sprite(image);
 	m_sprite = sprite;
+	m_sprite.setOrigin(sf::Vector2f(image.getSize().x / 2, image.getSize().y / 2));
+	
 }
 
 
