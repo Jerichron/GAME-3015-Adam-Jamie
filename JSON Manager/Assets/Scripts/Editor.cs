@@ -23,7 +23,7 @@ public class Editor : EditorWindow
                 GameObject gameObject = new GameObject(Item.itemType);
                 gameObject.transform.position = new Vector3(Item.Posx, Item.Posy, Item.Posz);
                 gameObject.transform.rotation = Quaternion.Euler(Item.Rotx, Item.Roty, Item.Rotz);
-                gameObject.transform.localScale = new Vector3(Item.ScaleX, Item.ScaleY, Item.ScaleZ);
+                gameObject.transform.localScale = new Vector3(Item.Scalex, Item.Scaley, Item.Scalez);
                 if (Item.Rigidbody == true)
                 {
                     gameObject.AddComponent<Rigidbody>();

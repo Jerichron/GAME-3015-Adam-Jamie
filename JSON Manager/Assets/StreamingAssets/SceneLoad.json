@@ -2,9 +2,9 @@
   "Item": [
     {
       "itemType": "Cube_1",
-      "Px": 3,
-      "Py": 3,
-      "Pz": 5,
+      "Posx": 3,
+      "Posy": 3,
+      "Posz": 5,
       "Position": [ 1, 2, 3 ],
       "Rotation": [ 3, 4, 5 ],
       "Scale": [ 1, 1, 1 ],
@@ -15,18 +15,18 @@
       "Verts": [ 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1 ],
       "BoxCollider": true,
       "MeshRenderer": true,
-      "Rx": 45,
-      "Ry": 20,
-      "Rz": 15,
-      "Sx": 1.1,
-      "Sy": 1.3,
-      "Sz": 1
+      "Rotx": 45,
+      "Roty": 20,
+      "Rotz": 15,
+      "Scalex": 1.1,
+      "Scaley": 1.3,
+      "Scalez": 1
     },
     {
       "itemType": "Cube_2",
-      "Px": 0,
-      "Py": 0,
-      "Pz": 0,
+      "Posx": 0,
+      "Posy": 0,
+      "Posz": 0,
       "Location": [ 1, 2, 3 ],
       "Rotation": [ 6, 7, 8 ],
       "Scale": [ 1, 1, 1 ],
@@ -37,12 +37,12 @@
       "Verts": [ 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1 ],
       "BoxCollider": true,
       "MeshRenderer": true,
-      "Rx": 45,
-      "Ry": 20,
-      "Rz": 15,
-      "Sx": 0.5,
-      "Sy": 0.5,
-      "Sz": 0.5
+      "Rotx": 45,
+      "Roty": 20,
+      "Rotz": 15,
+      "Scalex": 0.5,
+      "Scaley": 0.5,
+      "Scalez": 0.5
     }
   ]
 }

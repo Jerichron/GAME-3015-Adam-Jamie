@@ -23,7 +23,7 @@ public class Item
     public float Rotx;
     public float Roty;
     public float Rotz;
-    public float ScaleX;
-    public float ScaleY;
-    public float ScaleZ;
+    public float Scalex;
+    public float Scaley;
+    public float Scalez;
 }
