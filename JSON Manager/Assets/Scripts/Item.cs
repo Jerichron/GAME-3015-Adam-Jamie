@@ -7,9 +7,9 @@ using System.IO;
 public class Item
 {
     public string itemType;
-    public float VecLocx;
-    public float VecLocy;
-    public float VecLocz;//location to place the prefab.
+    public float Posx;
+    public float Posy;
+    public float Posz;//location to place the prefab.
     public Vector3 Location;
     public Vector3 Rotation; //the rotation in worldspace.
     public Vector3 Scale; //scale of the item. 
@@ -20,10 +20,10 @@ public class Item
     public int[] Verts;
     public bool BoxCollider;
     public bool MeshRenderer;
-    public float VecRotX;
-    public float VecRotY;
-    public float VecRotZ;
-    public float VecSclX;
-    public float VecSclY;
-    public float VecSclZ;
+    public float Rotx;
+    public float Roty;
+    public float Rotz;
+    public float ScaleX;
+    public float ScaleY;
+    public float ScaleZ;
 }

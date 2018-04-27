@@ -1,3 +1,48 @@
 {
-
+  "Item": [
+    {
+      "itemType": "Cube_1",
+      "Px": 3,
+      "Py": 3,
+      "Pz": 5,
+      "Position": [ 1, 2, 3 ],
+      "Rotation": [ 3, 4, 5 ],
+      "Scale": [ 1, 1, 1 ],
+      "Rigidbody": true,
+      "MeshFilter": true,
+      "triangles": [ 0, 2, 1, 0, 3, 2, 2, 3, 4, 2, 4, 5, 1, 2, 5, 1, 5, 6, 0, 7, 4, 0, 4, 3, 5, 4, 7, 5, 7, 6, 0, 6, 7, 0, 1, 6 ],
+      "numVerts": 8,
+      "Verts": [ 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1 ],
+      "BoxCollider": true,
+      "MeshRenderer": true,
+      "Rx": 45,
+      "Ry": 20,
+      "Rz": 15,
+      "Sx": 1.1,
+      "Sy": 1.3,
+      "Sz": 1
+    },
+    {
+      "itemType": "Cube_2",
+      "Px": 0,
+      "Py": 0,
+      "Pz": 0,
+      "Location": [ 1, 2, 3 ],
+      "Rotation": [ 6, 7, 8 ],
+      "Scale": [ 1, 1, 1 ],
+      "Rigidbody": false,
+      "MeshFilter": true,
+      "triangles": [ 0, 2, 1, 0, 3, 2, 2, 3, 4, 2, 4, 5, 1, 2, 5, 1, 5, 6, 0, 7, 4, 0, 4, 3, 5, 4, 7, 5, 7, 6, 0, 6, 7, 0, 1, 6 ],
+      "numVerts": 8,
+      "Verts": [ 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1 ],
+      "BoxCollider": true,
+      "MeshRenderer": true,
+      "Rx": 45,
+      "Ry": 20,
+      "Rz": 15,
+      "Sx": 0.5,
+      "Sy": 0.5,
+      "Sz": 0.5
+    }
+  ]
 }
