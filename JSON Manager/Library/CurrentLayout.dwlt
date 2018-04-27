@@ -152,7 +152,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 53
+  controlID: 30
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 54
+  controlID: 31
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 55
+  controlID: 32
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -442,18 +442,18 @@ MonoBehaviour:
     m_ExpandedIDs: e6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Cube_2
-      m_OriginalName: Cube_2
+      m_Name: GameManager
+      m_OriginalName: GameManager
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -7164
+      m_UserData: 9544
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 4
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -489,14 +489,14 @@ MonoBehaviour:
     width: 956
     height: 642
   m_SceneLighting: 1
-  lastFramingTime: 235.78939456790124
+  lastFramingTime: 346.2271818271605
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -2.2760239, y: -0.018618643, z: 2.5749133}
+    m_Target: {x: 1.5762631, y: 2.6373234, z: 1.7373948}
     speed: 2
-    m_Value: {x: -2.2760239, y: -0.018618643, z: 2.5749133}
+    m_Value: {x: 1.5762631, y: 2.6373234, z: 1.7373948}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -519,13 +519,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.090793885, y: 0.9065303, z: -0.2526571, w: 0.3257664}
+    m_Target: {x: 0.00023814423, y: 0.99681246, z: -0.0797251, w: 0.0029752394}
     speed: 2
-    m_Value: {x: 0.090793885, y: 0.9065303, z: -0.2526571, w: 0.3257664}
+    m_Value: {x: 0.00023814423, y: 0.99681246, z: -0.0797251, w: 0.0029752394}
   m_Size:
-    m_Target: 0.900001
+    m_Target: 7.963848
     speed: 2
-    m_Value: 0.900001
+    m_Value: 7.963848
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -689,7 +689,8 @@ MonoBehaviour:
     width: 1363
     height: 263
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 0}
+  m_AnimatorController: {fileID: 9100000, guid: 910186436c8db184db13c2df4c8067c9,
+    type: 2}
 --- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
