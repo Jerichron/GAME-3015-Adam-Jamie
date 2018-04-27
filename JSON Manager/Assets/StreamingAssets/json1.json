@@ -12,8 +12,8 @@
  "Mass" : 1,
  "Use_Gravity": true
  }
- },
-
+ }
+ /*
  "GameObject":{
  "id": 2,
  "Mesh" : "Sphere",
@@ -72,6 +72,6 @@
  "Mass" : 1,
  "Use_Gravity": false,
  }
- }
+ } */
 }
   
