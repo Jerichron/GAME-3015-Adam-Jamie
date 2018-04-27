@@ -1,6 +1,77 @@
 {
-  "Name": "Adam",
-  "Level": 7,
-  "Stats": [4, 7]
+ "GameObject":{
+ "id": 1,
+  "Mesh" : "Cube",
+ "Transform":{
+ "Position" : {"x": 5, "y": 1},
+ "Rotation" : {"x": 0, "y": 0},
+ "Scale" : {"x": 1, "y": 1}
+ },
+ "Sprite": "Mario",
+ "Rigidbody":{
+ "Mass" : 1,
+ "Use_Gravity": true
+ }
+ },
+
+ "GameObject":{
+ "id": 2,
+ "Mesh" : "Sphere",
+ "Transform":{
+ "Position" : {"x": 10, "y": 0},
+ "Rotation" : {"x": 0, "y": 0},
+ "Scale" : {"x": 1, "y": 1}
+ },
+ "Sprite": "Ground",
+ "Rigidbody":{
+ "Mass" : 1,
+ "Use_Gravity": false,
+ }
+ },
+
+  "GameObject":{
+ "id": 3,
+ "Mesh" : "Capsule",
+ "Transform":{
+ "Position" : {"x": 15, "y": 0},
+ "Rotation" : {"x": 0, "y": 0},
+ "Scale" : {"x": 1, "y": 1}
+ },
+ "Sprite": "Ground",
+ "Rigidbody":{
+ "Mass" : 1,
+ "Use_Gravity": false,
+ }
+ },
+
+  "GameObject":{
+ "id": 4,
+ "Mesh" : "Cylinder",
+ "Transform":{
+ "Position" : {"x": 0, "y": 0},
+ "Rotation" : {"x": 0, "y": 0},
+ "Scale" : {"x": 1, "y": 1}
+ },
+ "Sprite": "Ground",
+ "Rigidbody":{
+ "Mass" : 1,
+ "Use_Gravity": false,
+ }
+ },
+
+  "GameObject":{
+ "id": 5,
+ "Mesh" : "Plane",
+ "Transform":{
+ "Position" : {"x": 0, "y": 0},
+ "Rotation" : {"x": 0, "y": 0},
+ "Scale" : {"x": 1, "y": 1}
+ },
+ "Sprite": "Ground",
+ "Rigidbody":{
+ "Mass" : 1,
+ "Use_Gravity": false,
+ }
+ }
 }
   
