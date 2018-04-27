@@ -1,6 +1,6 @@
 {
   "Name": "Adam",
   "Level": 7,
-  "Stats": 4,
+  "Stats": [4, 7]
 }
   
