@@ -62,7 +62,7 @@ public class Editor : EditorWindow
                     gameObject.AddComponent<MeshRenderer>();
                     gameObject.GetComponent<MeshRenderer>().material = AssetDatabase.GetBuiltinExtraResource<Material>("Default-Diffuse.mat");
                 }
-
+				gameObject.GetComponent<BoxCollider> ().center = new Vector3 (Item.centerx, Item.centery, Item.centerz);
                 gameObject.GetComponent<MeshRenderer>().material = AssetDatabase.GetBuiltinExtraResource<Material>("Default-Diffuse.mat");
             }
         }

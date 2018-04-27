@@ -26,4 +26,7 @@ public class Item
     public float Scalex;
     public float Scaley;
     public float Scalez;
+	public float centerx;
+	public float centery;
+	public float centerz;
 }

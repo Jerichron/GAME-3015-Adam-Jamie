@@ -20,7 +20,11 @@
       "Rotz": 0,
       "Scalex": 1.0,
       "Scaley": 1.0,
-      "Scalez": 1.0
+      "Scalez": 1.0,
+      "centerx": 0.5,
+      "centery": 0.5,
+      "centerz": 0.5
+
     },
     {
       "itemType": "Cube_2",
@@ -42,9 +46,12 @@
       "Rotz": 0,
       "Scalex": 1.0,
       "Scaley": 1.0,
-      "Scalez": 1.0
+      "Scalez": 1.0,
+      "centerx": 0.5,
+      "centery": 0.5,
+      "centerz": 0.5
     },
-	{
+    {
       "itemType": "Cube_3",
       "Posx": 1.5,
       "Posy": 1.5,
@@ -64,9 +71,12 @@
       "Rotz": 0,
       "Scalex": 1.0,
       "Scaley": 1.0,
-      "Scalez": 1.0
+      "Scalez": 1.0,
+      "centerx": 0.5,
+      "centery": 0.5,
+      "centerz": 0.5
     },
-	{
+    {
       "itemType": "Cube_4",
       "Posx": -1,
       "Posy": 0,
@@ -86,7 +96,10 @@
       "Rotz": 0,
       "Scalex": 6.0,
       "Scaley": 1.0,
-      "Scalez": 1.0
+      "Scalez": 1.0,
+      "centerx": 0.5,
+      "centery": 0.5,
+      "centerz": 0.5
     }
   ]
 }
